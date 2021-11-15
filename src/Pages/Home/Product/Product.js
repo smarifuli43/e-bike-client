@@ -8,7 +8,7 @@ import { CardMedia, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Product = (props) => {
-  const { name, img, description, price } = props.product;
+  const { name, img, description, price,_id } = props.product;
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card sx={{ minWidth: 275, minHeight: 525,height:530, pb:2 }}>
@@ -28,8 +28,8 @@ const Product = (props) => {
          
         </CardContent>
         <CardActions >
-           <Link to='/purchase' style={{textDecoration:'none', paddingLeft:'15px'}}>
-          <Button className="btn-ebike" >Learn More</Button>
+          <Link to={`/purchase/${_id}`} style={{textDecoration:'none', paddingLeft:'15px'}}>
+          <Button className="btn-ebike" >Purchase</Button>
           </Link>
         </CardActions>
       </Card>

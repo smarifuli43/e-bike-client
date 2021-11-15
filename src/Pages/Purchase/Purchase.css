@@ -1,22 +1,21 @@
-.add-product {
+.purchase {
   box-shadow: 0 0 15px -5px #00000069;
 }
-.add-product form {
+.purchase-form form {
   display: flex;
   flex-direction: column;
   margin: auto;
-  padding-top: 20px;
 }
-.add-product form input,
+.purchase-form form input,
 textarea {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-radius: 3px;
   border: 1px solid rgb(185, 185, 185);
   padding: 10px;
     outline: none;
 
 }
-.add-product form input:focus,
+.purchase-formform input:focus,
 textarea:focus{
   border: 1px solid #FF634E ;
 }

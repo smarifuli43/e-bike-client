@@ -1,15 +1,17 @@
 import React from 'react';
 import useAuth from '../../../../Hooks/useAuth';
 import { useForm } from 'react-hook-form';
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import Rating from '@mui/material/Rating';
 
 
 const Review = () => {
   const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
+    const [value, setValue] = React.useState(2);
   const onSubmit = (data) => {
-    console.log(data);
+    data.rating = value;
     fetch('http://localhost:5000/reviews', {
       method: 'POST',
       headers: {
@@ -32,6 +34,13 @@ const Review = () => {
         sx={{ borderRadius: 1, maxWidth: 600, mx: 'auto', p: 5, my: 10 }}
       >
         <h2 className='heading-main'> Give Review</h2>
+        <Rating
+          name='simple-controlled'
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+        />
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             placeholder='Service Name'

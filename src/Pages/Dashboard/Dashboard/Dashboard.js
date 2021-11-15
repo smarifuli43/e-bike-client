@@ -20,7 +20,7 @@ import AddProduct from '../Admin/AddProduct/AddProduct';
 import Pay from '../User/Pay/Pay';
 import Review from '../User/Review/Review';
 import MyOrders from '../User/MyOrders/MyOrders';
-
+import logo from '../../../img/E-bike.png'
 
 const drawerWidth = 220;
 
@@ -109,7 +109,7 @@ function Dashboard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap component='div'>
-            Dashboard
+            <img src={logo} alt='' style={{ width: '100px' }} />
           </Typography>
         </Toolbar>
       </AppBar>
@@ -164,15 +164,15 @@ function Dashboard(props) {
             <DashboardHome></DashboardHome>
           </Route>
           <Route exact path={`${path}/pay`}>
-           <Pay></Pay>
+            <Pay></Pay>
           </Route>
           <Route exact path={`${path}/myorders`}>
-           <MyOrders></MyOrders>
+            <MyOrders></MyOrders>
           </Route>
           <Route exact path={`${path}/review`}>
-           <Review></Review>
+            <Review></Review>
           </Route>
-         
+
           <AdminRoute path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
           </AdminRoute>

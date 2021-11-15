@@ -11,9 +11,9 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Purchase from './Pages/Purchase/Purchase';
 
 import MoreProducts from './Pages/MoreProducts/MoreProducts';
-import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
+
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
-import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
+
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
             <Route path='/moreproducts'>
               <MoreProducts></MoreProducts>
             </Route>
-            <PrivateRoute path='/purchase'>
+            <PrivateRoute path='/purchase/:id'>
               <Purchase></Purchase>
             </PrivateRoute>
             <Route path='/login'>
