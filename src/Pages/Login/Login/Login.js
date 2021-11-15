@@ -14,6 +14,9 @@ const Login = () => {
     signInWithEmailAndPass,
     setIsLoading,
     error,
+    saveUser,
+    // email,
+    // name,
   } = useAuth();
   const location = useLocation();
   const history = useHistory();
@@ -39,6 +42,7 @@ const Login = () => {
       .then((result) => {
         history.push(redirect_url);
         setUser(result.user);
+          saveUser(result.user.email, result.user.displayName, 'PUT');
         console.log(result?.user);
       })
       .finally(() => setIsLoading(false));

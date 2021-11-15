@@ -1,14 +1,16 @@
+import React from 'react';
+import useAuth from '../../../../Hooks/useAuth';
+import { useForm } from 'react-hook-form';
 import { Container } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import './AddProduct.css';
 
-const AddProduct = () => {
+
+const Review = () => {
+  const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    fetch('https://young-eyrie-90744.herokuapp.com/products', {
+    fetch('http://localhost:5000/reviews', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -18,37 +20,28 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert('service added');
+          alert('review added');
           reset();
         }
       });
   };
-
   return (
     <Container>
       <Box
         className='add-product'
         sx={{ borderRadius: 1, maxWidth: 600, mx: 'auto', p: 5, my: 10 }}
       >
-        <h2 className='heading-main'> Add a product</h2>
+        <h2 className='heading-main'> Give Review</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             placeholder='Service Name'
             {...register('name', { required: true })}
+            defaultValue={user.displayName}
           />
 
-          <input
-            placeholder='Price'
-            {...register('price', { required: true })}
-          />
-
-          <input
-            placeholder='Image link'
-            {...register('img', { required: true })}
-          />
           <textarea
-            placeholder='Short description'
-            {...register('description', { required: true })}
+            placeholder='Your Reviews'
+            {...register('reviewText', { required: true })}
           />
           <input
             type='submit'
@@ -65,4 +58,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default Review;

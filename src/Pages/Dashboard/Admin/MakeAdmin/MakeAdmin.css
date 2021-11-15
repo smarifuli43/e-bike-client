@@ -1,0 +1,9 @@
+.make-admin {
+  box-shadow: 0 0 15px -5px #00000069;
+}
+.make-admin form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding-top: 20px;
+}

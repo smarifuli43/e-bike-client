@@ -1,13 +1,13 @@
-.add-service {
+.add-product {
   box-shadow: 0 0 15px -5px #00000069;
 }
-.add-service form {
+.add-product form {
   display: flex;
   flex-direction: column;
   margin: auto;
   padding-top: 20px;
 }
-.add-service form input,
+.add-product form input,
 textarea {
   margin-bottom: 20px;
   border-radius: 3px;
@@ -16,7 +16,7 @@ textarea {
     outline: none;
 
 }
-.add-service form input:focus,
+.add-product form input:focus,
 textarea:focus{
   border: 2px solid #FF634E ;
 }

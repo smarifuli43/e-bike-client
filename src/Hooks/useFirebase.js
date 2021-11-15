@@ -20,6 +20,7 @@ const useFirebase = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -39,8 +40,10 @@ const useFirebase = () => {
       .then((result) => {
         setError('');
         console.log(result.user);
+        saveUser(email, name, 'POST');
         setUserName();
-        logOut();
+        return;
+        // logOut();
       })
       .catch((error) => {
         setError(error.message);
@@ -72,6 +75,12 @@ const useFirebase = () => {
     return () => unsubscribed;
   }, []);
 
+  useEffect(() => {
+    fetch(`https://young-eyrie-90744.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
+
   const logOut = (history) => {
     signOut(auth).then(() => {
       setUser({});
@@ -79,12 +88,28 @@ const useFirebase = () => {
     });
   };
 
+  // save user to database
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName };
+    fetch('https://young-eyrie-90744.herokuapp.com/users', {
+      method: method,
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    }).then();
+  };
+
   return {
     user,
     setUser,
+    admin,
     error,
+    saveUser,
     isLoading,
     setIsLoading,
+    email,
+    name,
     setName,
     setEmail,
     setPassword,

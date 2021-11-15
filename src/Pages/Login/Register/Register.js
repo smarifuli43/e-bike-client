@@ -1,4 +1,4 @@
-import { Alert, Button,  Container, Grid, TextField } from '@mui/material';
+import { Alert, Button, Container, Grid, TextField } from '@mui/material';
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
@@ -12,6 +12,9 @@ const Register = () => {
     signInUsingGoogle,
     createNewUser,
     error,
+    saveUser,
+    setUser,
+    setIsLoading,
   } = useAuth();
   const history = useHistory();
   const handleNameChange = (e) => {
@@ -23,9 +26,18 @@ const Register = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+  const handleSignInUsingGoogle = () => {
+    signInUsingGoogle()
+      .then((result) => {
+        setUser(result.user);
+        history.push('/');
+        saveUser(result.user.email, result.user.displayName, 'PUT');
+        console.log(result?.user);
+      })
+      .finally(() => setIsLoading(false));
+  };
 
   const handleSubmit = (e) => {
-    console.log(e.target);
     e.preventDefault();
     createNewUser();
     history.push('/login');
@@ -42,7 +54,12 @@ const Register = () => {
             style={{ width: '100%', maxHeight: '500px' }}
           />
         </Grid>
-        <Grid item xs={12} md={6} sx={{ boxShadow: 2, py: 5,mt:3, borderRadius: 1 }}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{ boxShadow: 2, py: 5, mt: 3, borderRadius: 1 }}
+        >
           <form onSubmit={handleSubmit} sx={{ mt: 20 }}>
             <TextField
               sx={{ width: '75%', m: 1 }}
@@ -93,7 +110,7 @@ const Register = () => {
           <Button
             className='btn-ebike'
             variant='contained'
-            onClick={signInUsingGoogle}
+            onClick={handleSignInUsingGoogle}
           >
             Google sign In
           </Button>
