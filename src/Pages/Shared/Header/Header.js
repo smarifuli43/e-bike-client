@@ -47,6 +47,16 @@ const Header = () => {
               color: 'white',
               marginLeft: '15px',
             }}
+            to='/moreproducts'
+          >
+            More Products
+          </NavLink>
+          <NavLink
+            style={{
+              textDecoration: 'none',
+              color: 'white',
+              marginLeft: '15px',
+            }}
             to='/dashboard'
           >
             Dashboard

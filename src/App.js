@@ -8,6 +8,9 @@ import AuthProvider from './Context/AuthProvider';
 import NotFound from './Pages/NotFound/NotFound';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import Purchase from './Pages/Purchase/Purchase';
+import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
+import MoreProducts from './Pages/MoreProducts/MoreProducts';
 
 function App() {
   return (
@@ -24,6 +27,15 @@ function App() {
 
             <PrivateRoute path='/dashboard'>
               <Dashboard></Dashboard>
+            </PrivateRoute>
+            <Route path='/addproduct'>
+              <AddProduct></AddProduct>
+            </Route>
+            <Route path='/moreproducts'>
+              <MoreProducts></MoreProducts>
+            </Route>
+            <PrivateRoute path='/purchase'>
+              <Purchase></Purchase>
             </PrivateRoute>
             <Route path='/login'>
               <Login></Login>
