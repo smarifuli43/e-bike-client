@@ -1,4 +1,5 @@
 import { Container, Grid } from '@mui/material';
+import { Box } from '@mui/system';
 import React from 'react';
 import Service from '../Service/Service';
 
@@ -49,15 +50,17 @@ const items = [
 
 const Services = () => {
   return (
-    <Container sx={{ textAlign: 'center', my: 5 }}>
-      <h3 className='heading-before'> service</h3>
-      <h2 className='heading-main'>Offering Service</h2>
-      <Grid container spacing={3} sx={{ mt: 4 }}>
-        {items.map((service) => (
-          <Service key={service.id} service={service}></Service>
-        ))}
-      </Grid>
-    </Container>
+    <Box sx={{ bgcolor: '#E4E4E4' }}>
+      <Container sx={{ textAlign: 'center', mt: 5, py: 8 }}>
+        <h3 className='heading-before'> service</h3>
+        <h2 className='heading-main'>Offering Service</h2>
+        <Grid container spacing={3} sx={{ mt: 4 }}>
+          {items.map((service) => (
+            <Service key={service.id} service={service}></Service>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 

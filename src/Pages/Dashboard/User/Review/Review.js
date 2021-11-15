@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAuth from '../../../../Hooks/useAuth';
 import { useForm } from 'react-hook-form';
-import { Container, Typography } from '@mui/material';
+import { Alert, Container, } from '@mui/material';
 import { Box } from '@mui/system';
 import Rating from '@mui/material/Rating';
-
 
 const Review = () => {
   const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
-    const [value, setValue] = React.useState(2);
+  const [value, setValue] = React.useState(2);
+  const [success, setSuccess] = useState(false);
+
   const onSubmit = (data) => {
     data.rating = value;
-    fetch('http://localhost:5000/reviews', {
+    fetch('https://young-eyrie-90744.herokuapp.com/reviews', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -22,7 +23,7 @@ const Review = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert('review added');
+                   setSuccess(true);
           reset();
         }
       });
@@ -62,6 +63,7 @@ const Review = () => {
             }}
           />
         </form>
+        {success && <Alert severity='success'>Order success</Alert>}
       </Box>
     </Container>
   );

@@ -1,4 +1,4 @@
-import { Button, Container, Grid,} from '@mui/material';
+import { Button, Container, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../Hooks/useAuth';
 import Table from '@mui/material/Table';
@@ -13,32 +13,33 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const { user } = useAuth();
   useEffect(() => {
-    fetch(`http://localhost:5000/myorders?email=${user.email}`)
+    fetch(
+      `https://young-eyrie-90744.herokuapp.com/myorders?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
       });
   }, []);
-  console.log(orders)
-  
+  console.log(orders);
 
- const handleDelete = (id) => {
-   const proceed = window.confirm('Are you sure you want to delete?');
-   if (proceed === true) {
-     const url = `http://localhost:5000/orders/${id}`;
-     fetch(url, {
-       method: 'DELETE',
-     })
-       .then((res) => res.json())
-       .then((data) => {
-         if (data.deletedCount) {
-           alert('deleted successfully');
-           const remaining = orders.filter((order) => order._id !== id);
-           setOrders(remaining);
-         }
-       });
-   }
- };
+  const handleDelete = (id) => {
+    const proceed = window.confirm('Are you sure you want to delete?');
+    if (proceed === true) {
+      const url = `https://young-eyrie-90744.herokuapp.com/orders/${id}`;
+      fetch(url, {
+        method: 'DELETE',
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            alert('deleted successfully');
+            const remaining = orders.filter((order) => order._id !== id);
+            setOrders(remaining);
+          }
+        });
+    }
+  };
 
   return (
     <Container>
@@ -84,7 +85,13 @@ const MyOrders = () => {
                     <TableCell>${row.price * row.quantity}</TableCell>
                     <TableCell>{row.status}</TableCell>
                     <TableCell>
-                      <Button onClick={()=>handleDelete(row._id)} className='btn-ebike' style={{textTransform:'capitalize'}}>Cancel</Button>
+                      <Button
+                        onClick={() => handleDelete(row._id)}
+                        className='btn-ebike'
+                        style={{ textTransform: 'capitalize' }}
+                      >
+                        Cancel
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}

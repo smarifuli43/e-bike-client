@@ -10,51 +10,51 @@ import Paper from '@mui/material/Paper';
 import { Button, Container, Grid } from '@mui/material';
 
 const ManageOrders = () => {
-    const [orders, setOrders] = useState([]);
-    useEffect(() => {
-      fetch(`http://localhost:5000/orders`)
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    fetch(`https://young-eyrie-90744.herokuapp.com/orders`)
+      .then((res) => res.json())
+      .then((data) => {
+        setOrders(data);
+      });
+  }, []);
+  const handleDelete = (id) => {
+    const proceed = window.confirm('Are you sure you want to delete?');
+    if (proceed === true) {
+      const url = `https://young-eyrie-90744.herokuapp.com/orders/${id}`;
+      fetch(url, {
+        method: 'DELETE',
+      })
         .then((res) => res.json())
         .then((data) => {
-          setOrders(data);
+          if (data.deletedCount) {
+            alert('deleted successfully');
+            const remaining = orders.filter((order) => order._id !== id);
+            setOrders(remaining);
+          }
         });
-    }, []);
- const handleDelete = (id) => {
-   const proceed = window.confirm('Are you sure you want to delete?');
-   if (proceed === true) {
-     const url = `http://localhost:5000/orders/${id}`;
-     fetch(url, {
-       method: 'DELETE',
-     })
-       .then((res) => res.json())
-       .then((data) => {
-         if (data.deletedCount) {
-           alert('deleted successfully');
-           const remaining = orders.filter((order) => order._id !== id);
-           setOrders(remaining);
-         }
-       });
-   }
+    }
   };
-   const handleApproval = (id) => {
-     const orderClicked = orders.filter((order) => order._id === id);
-     orderClicked[0].status = 'Approved';
-     fetch(`http://localhost:5000/orders/${id}`, {
-       method: 'PUT',
-       headers: {
-         'content-type': 'application/json',
-       },
-       body: JSON.stringify(orderClicked),
-     })
-       .then((res) => res.json())
-       .then((data) => {
-         if (data.modifiedCount > 0) {
-           const ord = orders.filter(
-             (order) => order.status === 'pending' || 'Approved'
-           );
-           setOrders(ord);
-         }
-       });
-   };
+  const handleApproval = (id) => {
+    const orderClicked = orders.filter((order) => order._id === id);
+    orderClicked[0].status = 'Approved';
+    fetch(`https://young-eyrie-90744.herokuapp.com/orders/${id}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(orderClicked),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          const ord = orders.filter(
+            (order) => order.status === 'pending' || 'Approved'
+          );
+          setOrders(ord);
+        }
+      });
+  };
   return (
     <Container>
       <Grid container spacing={2}>
@@ -62,7 +62,7 @@ const ManageOrders = () => {
           item
           xs={12}
           style={{ boxShadow: '0 0 15px -5px #00000069' }}
-          sx={{ borderRadius: 1,width:'280px' , mx: 'auto', p: 5, my: 8 }}
+          sx={{ borderRadius: 1, width: '280px', mx: 'auto', p: 5, my: 8 }}
         >
           <h2 className='heading-main'>All Orders</h2>
           <TableContainer component={Paper}>

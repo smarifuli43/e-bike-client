@@ -51,28 +51,31 @@ const Header = () => {
           >
             More Products
           </NavLink>
-          <NavLink
-            style={{
-              textDecoration: 'none',
-              color: 'white',
-              marginLeft: '15px',
-            }}
-            to='/dashboard'
-          >
-            Dashboard
-          </NavLink>
+
           <NavLink
             style={{ textDecoration: 'none', color: 'white' }}
             to='/login'
           >
             {user?.email ? (
-              <Button
-                onClick={logOutUser}
-                sx={{ mx: 2, color: '#ffffff' }}
-                className='btn-ebike'
-              >
-                Log Out
-              </Button>
+              <Box>
+                <NavLink
+                  style={{
+                    textDecoration: 'none',
+                    color: 'white',
+                    marginLeft: '15px',
+                  }}
+                  to='/dashboard'
+                >
+                  Dashboard
+                </NavLink>
+                <Button
+                  onClick={logOutUser}
+                  sx={{ mx: 2, color: '#ffffff' }}
+                  className='btn-ebike'
+                >
+                  Log Out
+                </Button>
+              </Box>
             ) : (
               <Button color='inherit' sx={{ ml: 3 }} className='btn-ebike'>
                 Login

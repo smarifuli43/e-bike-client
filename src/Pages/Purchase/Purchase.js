@@ -9,12 +9,12 @@ import useAuth from '../../Hooks/useAuth';
 
 const Purchase = () => {
   const { id } = useParams();
-  const {user} = useAuth()
+  const { user } = useAuth();
   const [products, setProducts] = useState({});
   const [success, setSuccess] = useState(false);
   const { name, description, price, img } = products;
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${id}`)
+    fetch(`https://young-eyrie-90744.herokuapp.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -27,7 +27,7 @@ const Purchase = () => {
     data.productName = name;
     data.price = price;
     console.log(data);
-    fetch('http://localhost:5000/orders', {
+    fetch('https://young-eyrie-90744.herokuapp.com/orders', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -50,9 +50,9 @@ const Purchase = () => {
           sx={{ textAlign: 'center', py: 6, bgcolor: '#F6F6F6' }}
           className='purchase'
         >
-          <h2 className="heading-main">Your Order</h2>
-          <Grid container spacing={3} sx={{ mt: 4, px:4 }}>
-            <Grid item xs={12} sm={6} sx={{textAlign:'left'}}>
+          <h2 className='heading-main'>Your Order</h2>
+          <Grid container spacing={3} sx={{ mt: 4, px: 4 }}>
+            <Grid item xs={12} sm={6} sx={{ textAlign: 'left' }}>
               <img
                 src={img}
                 alt=''
@@ -83,7 +83,13 @@ const Purchase = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={12} sm={6} className='purchase-form' sx={{px:3,mt:4}}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              className='purchase-form'
+              sx={{ px: 3, mt: 4 }}
+            >
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                   placeholder='Your Name'
@@ -117,11 +123,7 @@ const Purchase = () => {
                   Order
                 </Button>
               </form>
-              {success && (
-                <Alert severity='success'>
-                  Order success
-                </Alert>
-              )}
+              {success && <Alert severity='success'>Order success</Alert>}
             </Grid>
           </Grid>
         </Container>

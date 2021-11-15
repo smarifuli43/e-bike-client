@@ -16,6 +16,5 @@
 }
 .hero-text-container{
   padding: 20px;
-  box-shadow: ;
-  background:linear-gradient(135deg , #0000003f, #00000000);
+  /* background:linear-gradient(135deg , #0000003f, #00000000); */
 }

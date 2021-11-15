@@ -21,7 +21,7 @@ const ManageProducts = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm('Are you sure you want to delete?');
     if (proceed === true) {
-      const url = `http://localhost:5000/products/${id}`;
+      const url = `https://young-eyrie-90744.herokuapp.com/products/${id}`;
       fetch(url, {
         method: 'DELETE',
       })
@@ -42,11 +42,11 @@ const ManageProducts = () => {
           item
           xs={12}
           style={{ boxShadow: '0 0 15px -5px #00000069' }}
-          sx={{ borderRadius: 1,width:'280px',  mx: 'auto', p: 5, my: 8 }}
+          sx={{ borderRadius: 1, width: '280px', mx: 'auto', p: 5, my: 8 }}
         >
           <h2 className='heading-main'>All Products</h2>
           <TableContainer component={Paper}>
-            <Table sx={{minWidth:400}} aria-label='order table'>
+            <Table sx={{ minWidth: 400 }} aria-label='order table'>
               <TableHead>
                 <TableRow>
                   <TableCell sx={{ fontSize: 16, fontWeight: 600 }}>
