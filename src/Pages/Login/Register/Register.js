@@ -32,7 +32,7 @@ const Register = () => {
   };
 
   return (
-    <Container sx={{ textAlign: 'center' }}>
+    <Container sx={{ textAlign: 'center', py: 5 }}>
       <h2 className='heading-main'>Create a New Account</h2>
       <Grid container spacing={2} sx={{ mt: 5 }}>
         <Grid item xs={12} md={6}>
@@ -42,7 +42,7 @@ const Register = () => {
             style={{ width: '100%', maxHeight: '500px' }}
           />
         </Grid>
-        <Grid item xs={12} md={6} sx={{ boxShadow: 2, borderRadius: 1 }}>
+        <Grid item xs={12} md={6} sx={{ boxShadow: 2, py: 5,mt:3, borderRadius: 1 }}>
           <form onSubmit={handleSubmit} sx={{ mt: 20 }}>
             <TextField
               sx={{ width: '75%', m: 1 }}
@@ -77,7 +77,7 @@ const Register = () => {
               // onClick={handleLoginSubmit}
               variant='contained'
               type='submit'
-              sx={{ width: '75%', m: 1 }}
+              sx={{ width: '75%', mt: 2 }}
               className='btn-ebike'
             >
               Register

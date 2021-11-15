@@ -1,0 +1,23 @@
+.quick-links{
+    border-bottom: 1px solid #fffefe21;
+     margin-bottom: 20px;
+     padding-bottom: 10px;
+}
+.quick-links a{
+  transition:all .3s ease;
+  size: 20px;
+color: #cccccc;
+  display: inline-block;
+  margin-left: 10px;
+  text-decoration: none;
+}
+.quick-links a:hover{
+   color: #e64934 !important;
+     text-decoration: underline;
+
+}
+.quick-links i{
+  color:#cccccc;
+}
+
+

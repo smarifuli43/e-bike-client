@@ -1,0 +1,21 @@
+.banner{
+  background: linear-gradient(135deg, #000000ea, #00000091),
+    url(../../../img/hero.png) no-repeat;
+  background-position: right top;
+  background-size: cover;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+.main-heading{
+  font-size: 50px !important;
+  text-transform: uppercase;
+  font-weight: 700 !important;
+
+}
+.hero-text-container{
+  padding: 20px;
+  box-shadow: ;
+  background:linear-gradient(135deg , #0000003f, #00000000);
+}

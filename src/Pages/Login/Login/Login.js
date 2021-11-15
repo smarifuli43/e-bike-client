@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   return (
-    <Container sx={{ textAlign: 'center' }}>
+    <Container sx={{ textAlign: 'center', py: 5 }}>
       <h2 className='heading-main'>Please Login</h2>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
@@ -55,7 +55,12 @@ const Login = () => {
             style={{ width: '100%', maxHeight: '450px' }}
           />
         </Grid>
-        <Grid item xs={12} md={6} sx={{ mt: 12, boxShadow: 2, borderRadius: 1,}} >
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{ mt: 12, pl: 0, py: 5, boxShadow: 2, borderRadius: 1 }}
+        >
           <form onSubmit={handleSubmit}>
             <TextField
               sx={{ width: '75%', m: 1 }}
@@ -81,7 +86,7 @@ const Login = () => {
               // onClick={handleLoginSubmit}
               variant='contained'
               type='submit'
-              sx={{ width: '75%', m: 1 }}
+              sx={{ width: '75%', mt: 2 }}
               className='btn-ebike'
             >
               Login
