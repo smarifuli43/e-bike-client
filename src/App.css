@@ -1,38 +1,38 @@
-.App {
-  text-align: center;
+*{
+  font-family: 'Montserrat', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn-ebike{
+    background-color: #FF634E!important;
+  color: #ffffff;
+  padding: 8px 15px;
+border-radius: 5px;
+text-decoration: none;
+transition: all .3s ease;
+border-color:#FF634E !important;
+}
+.btn-ebike:hover{
+  background-color: #e64934;
+  color: #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* .hl{
+  width: 80px;
+  height: 2px;
+  background-color: #F56960;
+  margin:auto;
+} */
+.heading-before{
+color: #e64934;
+text-transform: uppercase;
+font-size: 16px;
+margin-top: 5px;
+}
+.heading-main{
+text-transform: uppercase;
+color:#101F46;
+font-weight: 900;
+font-size: 35px;
+text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
