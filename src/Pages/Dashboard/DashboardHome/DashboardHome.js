@@ -1,12 +1,18 @@
 import * as React from 'react';
-import { Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
+import { Box } from '@mui/system';
 
 
 const DashboardHome = () => {
   return (
-    <Grid container spacing={2}>
-     <h2>Dashboard Home</h2>
-    </Grid>
+    <Container>
+     
+      <Box>
+        <h2 style={{ textAlign: 'center',marginTop:'230px' }}>Dashboard - Customize Everything</h2>
+      </Box>
+    
+    </Container>
+   
   );
 };
 

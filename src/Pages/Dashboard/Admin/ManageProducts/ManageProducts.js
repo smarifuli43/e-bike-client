@@ -1,6 +1,4 @@
-import { Button, Container, Grid,} from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../../../Hooks/useAuth';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,38 +6,35 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Button, Container, Grid } from '@mui/material';
 
-const MyOrders = () => {
-  const [orders, setOrders] = useState([]);
-  const { user } = useAuth();
+const ManageProducts = () => {
+  const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/myorders?email=${user.email}`)
+    fetch('https://young-eyrie-90744.herokuapp.com/products')
       .then((res) => res.json())
       .then((data) => {
-        setOrders(data);
+        setProducts(data);
       });
   }, []);
-  console.log(orders)
-  
 
- const handleDelete = (id) => {
-   const proceed = window.confirm('Are you sure you want to delete?');
-   if (proceed === true) {
-     const url = `http://localhost:5000/orders/${id}`;
-     fetch(url, {
-       method: 'DELETE',
-     })
-       .then((res) => res.json())
-       .then((data) => {
-         if (data.deletedCount) {
-           alert('deleted successfully');
-           const remaining = orders.filter((order) => order._id !== id);
-           setOrders(remaining);
-         }
-       });
-   }
- };
-
+  const handleDelete = (id) => {
+    const proceed = window.confirm('Are you sure you want to delete?');
+    if (proceed === true) {
+      const url = `http://localhost:5000/products/${id}`;
+      fetch(url, {
+        method: 'DELETE',
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            alert('deleted successfully');
+            const remaining = products.filter((order) => order._id !== id);
+            setProducts(remaining);
+          }
+        });
+    }
+  };
   return (
     <Container>
       <Grid container spacing={2}>
@@ -47,24 +42,18 @@ const MyOrders = () => {
           item
           xs={12}
           style={{ boxShadow: '0 0 15px -5px #00000069' }}
-          sx={{ borderRadius: 1, maxWidth: 1000, mx: 'auto', p: 5, my: 8 }}
+          sx={{ borderRadius: 1,width:'280px',  mx: 'auto', p: 5, my: 8 }}
         >
-          <h2 className='heading-main'>My Order</h2>
+          <h2 className='heading-main'>All Products</h2>
           <TableContainer component={Paper}>
-            <Table sx={{}} aria-label='order table'>
+            <Table sx={{minWidth:400}} aria-label='order table'>
               <TableHead>
                 <TableRow>
                   <TableCell sx={{ fontSize: 16, fontWeight: 600 }}>
                     Product Name
                   </TableCell>
                   <TableCell sx={{ fontSize: 16, fontWeight: 600 }}>
-                    Quantity
-                  </TableCell>
-                  <TableCell sx={{ fontSize: 16, fontWeight: 600 }}>
                     Price
-                  </TableCell>
-                  <TableCell sx={{ fontSize: 16, fontWeight: 600 }}>
-                    Status
                   </TableCell>
                   <TableCell sx={{ fontSize: 16, fontWeight: 600 }}>
                     Actions
@@ -72,19 +61,23 @@ const MyOrders = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {orders.map((row) => (
+                {products.map((row) => (
                   <TableRow
                     key={row._id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                     <TableCell component='th' scope='row'>
-                      {row.productName}
+                      {row.name}
                     </TableCell>
-                    <TableCell>{row.quantity}</TableCell>
-                    <TableCell>${row.price * row.quantity}</TableCell>
-                    <TableCell>{row.status}</TableCell>
+                    <TableCell>{row.price}</TableCell>
                     <TableCell>
-                      <Button onClick={()=>handleDelete(row._id)} className='btn-ebike' style={{textTransform:'capitalize'}}>Cancel</Button>
+                      <Button
+                        onClick={() => handleDelete(row._id)}
+                        className='btn-ebike'
+                        style={{ textTransform: 'capitalize' }}
+                      >
+                        Delete
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -97,4 +90,4 @@ const MyOrders = () => {
   );
 };
 
-export default MyOrders;
+export default ManageProducts;

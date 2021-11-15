@@ -1,11 +1,12 @@
-import { Container } from '@mui/material';
+import { Alert, Container } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './AddProduct.css';
 
 const AddProduct = () => {
   const { register, handleSubmit, reset } = useForm();
+  const [success, setSuccess] = useState(false);
   const onSubmit = (data) => {
     console.log(data);
     fetch('https://young-eyrie-90744.herokuapp.com/products', {
@@ -18,7 +19,7 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert('service added');
+          setSuccess(true)
           reset();
         }
       });
@@ -60,6 +61,7 @@ const AddProduct = () => {
             }}
           />
         </form>
+        {success && <Alert severity='success'>Order success</Alert>}
       </Box>
     </Container>
   );

@@ -17,7 +17,7 @@ const Banner = () => {
               Here you will find all kinds of e-bike and their accessories .
             </Typography>
             <NavLink
-              to='/shop'
+              to='/moreproducts'
               className=' btn-ebike'
               style={{
                 marginTop: '10px',

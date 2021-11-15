@@ -1,0 +1,33 @@
+.dashboard-link{
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  align-items: left;
+
+}
+.dashboard-link a{
+text-decoration: none;
+color: #111111;
+font-weight: 600;
+transition: all .3s ease;
+text-transform: uppercase;
+margin-bottom: 10px;
+display: block;
+padding: 5px;
+border-radius: 2px;
+
+}
+.dashboard-link a:hover{
+  color: #FF634E;
+  background-color: #fcf0efe7;
+}
+.dashboard-top{
+  margin-top: -30px;
+  text-align: center;
+  border-bottom: 1px solid #77767688;
+}
+.dashboard-top img{
+   width: 70px;
+   height: 70px;
+   border-radius: 50%;
+}

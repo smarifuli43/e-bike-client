@@ -1,5 +1,6 @@
 *{
   font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
 }
 
 .btn-ebike{
@@ -16,12 +17,6 @@ border-color:#FF634E !important;
   color: #ffffff;
 }
 
-/* .hl{
-  width: 80px;
-  height: 2px;
-  background-color: #F56960;
-  margin:auto;
-} */
 .heading-before{
 color: #e64934;
 text-transform: uppercase;
