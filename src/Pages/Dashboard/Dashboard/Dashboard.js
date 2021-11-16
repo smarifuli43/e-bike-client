@@ -174,7 +174,7 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' noWrap component='div'>
+          <Typography variant='h6' noWrap component='div' style={{display:'flex' , justifyContent:'center', width:'100%'}}>
             <img src={logo} alt='' style={{ width: '100px' }} />
           </Typography>
         </Toolbar>
