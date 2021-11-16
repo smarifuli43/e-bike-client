@@ -34,7 +34,7 @@ const AddProduct = () => {
         <h2 className='heading-main'> Add a product</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
-            placeholder='Service Name'
+            placeholder='Product Name'
             {...register('name', { required: true })}
           />
 
