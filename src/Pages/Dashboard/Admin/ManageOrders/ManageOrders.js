@@ -37,7 +37,7 @@ const ManageOrders = () => {
   };
   const handleApproval = (id) => {
     const orderClicked = orders.filter((order) => order._id === id);
-    orderClicked[0].status = 'Approved';
+    orderClicked[0].status = 'Shifted';
     fetch(`https://young-eyrie-90744.herokuapp.com/orders/${id}`, {
       method: 'PUT',
       headers: {
@@ -49,7 +49,7 @@ const ManageOrders = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           const ord = orders.filter(
-            (order) => order.status === 'pending' || 'Approved'
+            (order) => order.status === 'pending' || 'Shifted'
           );
           setOrders(ord);
         }
@@ -57,12 +57,12 @@ const ManageOrders = () => {
   };
   return (
     <Container>
-      <Grid container spacing={2}>
+      <Grid container spacing={0}>
         <Grid
           item
           xs={12}
           style={{ boxShadow: '0 0 15px -5px #00000069' }}
-          sx={{ borderRadius: 1, width: '280px', mx: 'auto', p: 5, my: 8 }}
+          sx={{ borderRadius: 1, width: '280px', mx: 'auto', p: 2, my: 8 }}
         >
           <h2 className='heading-main'>All Orders</h2>
           <TableContainer component={Paper}>

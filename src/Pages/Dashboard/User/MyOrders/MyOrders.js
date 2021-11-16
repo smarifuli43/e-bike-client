@@ -43,16 +43,16 @@ const MyOrders = () => {
 
   return (
     <Container>
-      <Grid container spacing={2}>
+      <Grid container spacing={0}>
         <Grid
           item
           xs={12}
           style={{ boxShadow: '0 0 15px -5px #00000069' }}
-          sx={{ borderRadius: 1, maxWidth: 1000, mx: 'auto', p: 5, my: 8 }}
+          sx={{ borderRadius: 1, width: '280px', mx: 'auto', p: 2, my: 8 }}
         >
           <h2 className='heading-main'>My Order</h2>
           <TableContainer component={Paper}>
-            <Table sx={{}} aria-label='order table'>
+            <Table sx={{ minWidth: 400 }} aria-label='order table'>
               <TableHead>
                 <TableRow>
                   <TableCell sx={{ fontSize: 16, fontWeight: 600 }}>

@@ -11,7 +11,7 @@ const Product = (props) => {
   const { name, img, description, price,_id } = props.product;
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ minWidth: 275, minHeight: 525,height:530, pb:2 }}>
+      <Card sx={{ minWidth: 200, minHeight: 'auto',height:550, pb:2 }}>
         <CardContent sx={{textAlign:'left', }}>
           <CardMedia
             component='img'

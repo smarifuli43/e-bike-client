@@ -29,7 +29,7 @@ const AddProduct = () => {
     <Container>
       <Box
         className='add-product'
-        sx={{ borderRadius: 1, maxWidth: 600, mx: 'auto', p: 5, my: 10 }}
+        sx={{ borderRadius: 1, maxWidth: 600, mx: 'auto', p: 3, my: 10 }}
       >
         <h2 className='heading-main'> Add a product</h2>
         <form onSubmit={handleSubmit(onSubmit)}>

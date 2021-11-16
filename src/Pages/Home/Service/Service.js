@@ -5,7 +5,7 @@ const Service = (props) => {
   const { name, img, description } = props.service;
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Paper elevation={3} sx={{ p: 4 }}>
+      <Paper elevation={3} sx={{ p: 3 }}>
         <i
           class={`fas ${img}`}
           style={{ fontSize: '45px', color: '#FF634E' }}

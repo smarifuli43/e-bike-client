@@ -37,12 +37,12 @@ const ManageProducts = () => {
   };
   return (
     <Container>
-      <Grid container spacing={2}>
+      <Grid container spacing={0}>
         <Grid
           item
           xs={12}
           style={{ boxShadow: '0 0 15px -5px #00000069' }}
-          sx={{ borderRadius: 1, width: '280px', mx: 'auto', p: 5, my: 8 }}
+          sx={{ borderRadius: 1, width: '280px', mx: 'auto', p: 2, my: 8 }}
         >
           <h2 className='heading-main'>All Products</h2>
           <TableContainer component={Paper}>

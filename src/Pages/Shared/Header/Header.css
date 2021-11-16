@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+.ham-burger {
+  display: none !important;
+}
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 20px;
+}
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+  .navbar {
+    display: none;
+    transition: all 0.3s ease;
+  }
+  .mobile-menu {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: space-evenly;
+    margin-top: 40px;
+  }
+  .navbar-container {
+    display: flex;
+    justify-content: start;
+    padding: 35px 20px;
+  }
+  .ham-burger {
+    display: block !important;
+    position: absolute !important;
+    top: 10px;
+    right: 0;
+  }
+  .m-menu {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-between;
+  }
+  .align-left {
+    margin-left: 0px !important;
+  }
+}

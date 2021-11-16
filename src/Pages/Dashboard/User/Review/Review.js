@@ -32,7 +32,7 @@ const Review = () => {
     <Container>
       <Box
         className='add-product'
-        sx={{ borderRadius: 1, maxWidth: 600, mx: 'auto', p: 5, my: 10 }}
+        sx={{ borderRadius: 1, maxWidth: 600, mx: 'auto', p: 4, my: 10 }}
       >
         <h2 className='heading-main'> Give Review</h2>
         <Rating
